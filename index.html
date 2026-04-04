@@ -34,7 +34,6 @@ nav a {
   max-width: 900px;
   margin: auto;
   line-height: 1.8;
-  font-size: 18px;
 }
 
 .product {
@@ -54,8 +53,15 @@ button {
   cursor: pointer;
 }
 
-h2 {
-  color: #c62828;
+#formMua {
+  display:none;
+  position:fixed;
+  top:20%;
+  left:35%;
+  background:white;
+  padding:20px;
+  border:2px solid black;
+  z-index:1000;
 }
 </style>
 </head>
@@ -70,40 +76,13 @@ h2 {
 <nav>
   <a href="#gioithieu">Giới thiệu</a>
   <a href="#sanpham">Sản phẩm</a>
-  <a href="#lienhe">Liên hệ</a>
 </nav>
 
 <div class="section" id="gioithieu">
   <h2>Câu chuyện Sắc Việt</h2>
-
   <p>
-  “Đất nước là nơi dân mình đoàn tụ…” – từ chiều sâu thiêng liêng ấy,
-  bộ sưu tập quạt <b>“Sắc Việt ngàn năm”</b> không chỉ là một sản phẩm,
-  mà là ba lát cắt kết tinh linh hồn dân tộc.
-  </p>
-
-  <p>
-  <b>“Đất Việt”</b> khởi nguồn từ truyền thuyết Lạc Long Quân và Âu Cơ,
-  nơi trăm trứng nở trăm con, kết nối muôn triệu con người thành một dải
-  non sông liền mạch không thể chia lìa.
-  </p>
-
-  <p>
-  <b>“Sức Việt”</b> là khúc tráng ca của lịch sử, nơi những con người bình dị
-  hóa hào hùng, lấy lòng yêu nước làm khiên, lấy niềm tin làm lửa,
-  viết nên bản lĩnh quật cường của dân tộc Việt Nam.
-  </p>
-
-  <p>
-  <b>“Dáng Việt”</b> là bản tình ca sâu lắng, nơi vẻ đẹp người phụ nữ trong tà áo dài
-  như hoa sen giữa bùn mà vẫn thanh khiết, mềm mại và kiên định,
-  gìn giữ hồn cốt dân tộc qua bao biến động.
-  </p>
-
-  <p>
-  <b>Ba chiếc quạt – ba câu chuyện – một tinh thần:
-  Việt Nam không chỉ là hình hài đất nước, mà còn là khí phách, tâm hồn
-  và niềm tự hào trong từng thế hệ.</b>
+  “Đất nước là nơi dân mình đoàn tụ…” – bộ sưu tập quạt “Sắc Việt ngàn năm”
+  là sự kết tinh của văn hóa dân tộc.
   </p>
 </div>
 
@@ -112,37 +91,90 @@ h2 {
 
   <div class="product">
     <h3>Đất Việt</h3>
-    <p>Biểu tượng bản đồ Việt Nam</p>
     <p>Giá: 120.000đ</p>
-    <button onclick="mua()">Mua ngay</button>
+    <button onclick="moForm('Đất Việt')">Mua ngay</button>
   </div>
 
   <div class="product">
     <h3>Sức Việt</h3>
-    <p>Tinh thần dân tộc</p>
     <p>Giá: 120.000đ</p>
-    <button onclick="mua()">Mua ngay</button>
+    <button onclick="moForm('Sức Việt')">Mua ngay</button>
   </div>
 
   <div class="product">
     <h3>Dáng Việt</h3>
-    <p>Vẻ đẹp áo dài</p>
     <p>Giá: 120.000đ</p>
-    <button onclick="mua()">Mua ngay</button>
+    <button onclick="moForm('Dáng Việt')">Mua ngay</button>
   </div>
 
 </div>
 
-<div class="section" id="lienhe">
-  <h2>Liên hệ</h2>
-  <p>Vũ Thị Minh Hằng</p>
-  <p>SĐT: 0916611831</p>
+<!-- FORM -->
+<div id="formMua">
+  <h3>Đặt hàng</h3>
+
+  <input id="ten" type="text" placeholder="Họ tên"><br><br>
+  <input id="sdt" type="text" placeholder="SĐT"><br><br>
+  <input id="soluong" type="number" value="1"><br><br>
+
+  <button onclick="guiDon()">Gửi đơn</button>
+  <button onclick="dongForm()">Đóng</button>
+</div>
+
+<!-- DANH SÁCH -->
+<div class="section">
+  <h3>Danh sách đơn hàng</h3>
+  <ul id="danhsach"></ul>
 </div>
 
 <script>
-function mua() {
-  window.open("https://docs.google.com/forms/d/e/1FAIpQLScZXYnlPap4gz52X46ACTA5Qgc02j6EHIdbC6L84YkVJwU3Og/viewform");
+let sanPham = "";
+let donHang = JSON.parse(localStorage.getItem("donHang")) || [];
+
+function moForm(sp) {
+  sanPham = sp;
+  document.getElementById("formMua").style.display = "block";
 }
+
+function dongForm() {
+  document.getElementById("formMua").style.display = "none";
+}
+
+function guiDon() {
+  let ten = document.getElementById("ten").value;
+  let sdt = document.getElementById("sdt").value;
+  let sl = document.getElementById("soluong").value;
+
+  let don = {
+    ten: ten,
+    sdt: sdt,
+    soluong: sl,
+    sanpham: sanPham
+  };
+
+  donHang.push(don);
+
+  localStorage.setItem("donHang", JSON.stringify(donHang));
+
+  hienThi();
+
+  alert("Đặt hàng thành công!");
+
+  dongForm();
+}
+
+function hienThi() {
+  let ds = document.getElementById("danhsach");
+  ds.innerHTML = "";
+
+  donHang.forEach(d => {
+    let li = document.createElement("li");
+    li.innerText = d.ten + " - " + d.sdt + " - " + d.sanpham + " - SL: " + d.soluong;
+    ds.appendChild(li);
+  });
+}
+
+hienThi();
 </script>
 
 </body>
