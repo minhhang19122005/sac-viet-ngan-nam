@@ -19,7 +19,10 @@ header {
 
 .section {
   padding: 40px;
-  text-align: center;
+  max-width: 900px;
+  margin: auto;
+  line-height: 1.8;
+  font-size: 18px;
 }
 
 .product {
@@ -28,6 +31,7 @@ header {
   margin: 10px;
   display: inline-block;
   width: 250px;
+  text-align: center;
 }
 
 button {
@@ -46,6 +50,7 @@ button {
   background:white;
   padding:20px;
   border:2px solid black;
+  z-index:1000;
 }
 </style>
 </head>
@@ -54,7 +59,48 @@ button {
 
 <header>
   <h1>SẮC VIỆT NGÀN NĂM</h1>
+  <p>Quạt nghệ thuật – Lan tỏa văn hóa Việt</p>
 </header>
+
+<div class="section">
+  <h2>Câu chuyện Sắc Việt</h2>
+
+  <p>
+  “Đất nước là nơi dân mình đoàn tụ…” – từ chiều sâu thiêng liêng ấy,
+  bộ sưu tập quạt <b>“Sắc Việt ngàn năm”</b> không chỉ là một sản phẩm,
+  mà là ba lát cắt kết tinh linh hồn dân tộc.
+  </p>
+
+  <p>
+  <b>“Đất Việt”</b> khởi nguồn từ truyền thuyết Lạc Long Quân và Âu Cơ,
+  nơi trăm trứng nở trăm con, chia nhau lên rừng xuống biển,
+  để kết nối muôn triệu con người thành một dải non sông liền mạch không thể chia lìa.
+  </p>
+
+  <p>
+  <b>“Sức Việt”</b> là khúc tráng ca của lịch sử, nơi những con người bình dị hóa hào hùng,
+  lấy lòng yêu nước làm khiên, lấy niềm tin làm lửa,
+  để viết lên bản lĩnh quật cường của một dân tộc chưa bao giờ cúi đầu.
+  </p>
+
+  <p>
+  <b>“Dáng Việt”</b> lại được ví von là một bản tình ca sâu lắng,
+  nơi vẻ đẹp người phụ nữ trong tà áo dài, như hoa sen giữa bùn mà vẫn thanh khiết,
+  mềm mại và kiên định, dịu dàng mà bền bỉ,
+  giữ gìn hồn cốt dân tộc qua bao biến động.
+  </p>
+
+  <p>
+  Ba chiếc quạt, ba câu chuyện, nhưng cùng hội tụ một chân lý:
+  <br><b>
+  Việt Nam không chỉ tồn tại trong hình hài đất nước,
+  mà còn là khí phách, tâm hồn, là niềm tự hào trong từng thế hệ –
+  để khi chạm đến, không chỉ thế giới rung động,
+  mà mỗi người Việt Nam cũng lặng đi rồi dâng lên một niềm kiêu hãnh sâu sắc về cội nguồn của mình.
+  </b>
+  </p>
+
+</div>
 
 <div class="section">
   <h2>Sản phẩm</h2>
@@ -79,7 +125,6 @@ button {
 
 </div>
 
-<!-- FORM -->
 <div id="formMua">
   <h3>Đặt hàng</h3>
 
@@ -91,7 +136,6 @@ button {
   <button onclick="dongForm()">Đóng</button>
 </div>
 
-<!-- DANH SÁCH -->
 <div class="section">
   <h3>Danh sách đơn hàng</h3>
   <ul id="danhsach"></ul>
