@@ -17,6 +17,18 @@ header {
   text-align: center;
 }
 
+nav {
+  background: #333;
+  padding: 10px;
+  text-align: center;
+}
+
+nav a {
+  color: white;
+  margin: 10px;
+  text-decoration: none;
+}
+
 .section {
   padding: 40px;
   max-width: 900px;
@@ -42,15 +54,8 @@ button {
   cursor: pointer;
 }
 
-#formMua {
-  display:none;
-  position:fixed;
-  top:20%;
-  left:35%;
-  background:white;
-  padding:20px;
-  border:2px solid black;
-  z-index:1000;
+h2 {
+  color: #c62828;
 }
 </style>
 </head>
@@ -62,7 +67,13 @@ button {
   <p>Quạt nghệ thuật – Lan tỏa văn hóa Việt</p>
 </header>
 
-<div class="section">
+<nav>
+  <a href="#gioithieu">Giới thiệu</a>
+  <a href="#sanpham">Sản phẩm</a>
+  <a href="#lienhe">Liên hệ</a>
+</nav>
+
+<div class="section" id="gioithieu">
   <h2>Câu chuyện Sắc Việt</h2>
 
   <p>
@@ -73,122 +84,65 @@ button {
 
   <p>
   <b>“Đất Việt”</b> khởi nguồn từ truyền thuyết Lạc Long Quân và Âu Cơ,
-  nơi trăm trứng nở trăm con, chia nhau lên rừng xuống biển,
-  để kết nối muôn triệu con người thành một dải non sông liền mạch không thể chia lìa.
+  nơi trăm trứng nở trăm con, kết nối muôn triệu con người thành một dải
+  non sông liền mạch không thể chia lìa.
   </p>
 
   <p>
-  <b>“Sức Việt”</b> là khúc tráng ca của lịch sử, nơi những con người bình dị hóa hào hùng,
-  lấy lòng yêu nước làm khiên, lấy niềm tin làm lửa,
-  để viết lên bản lĩnh quật cường của một dân tộc chưa bao giờ cúi đầu.
+  <b>“Sức Việt”</b> là khúc tráng ca của lịch sử, nơi những con người bình dị
+  hóa hào hùng, lấy lòng yêu nước làm khiên, lấy niềm tin làm lửa,
+  viết nên bản lĩnh quật cường của dân tộc Việt Nam.
   </p>
 
   <p>
-  <b>“Dáng Việt”</b> lại được ví von là một bản tình ca sâu lắng,
-  nơi vẻ đẹp người phụ nữ trong tà áo dài, như hoa sen giữa bùn mà vẫn thanh khiết,
-  mềm mại và kiên định, dịu dàng mà bền bỉ,
-  giữ gìn hồn cốt dân tộc qua bao biến động.
+  <b>“Dáng Việt”</b> là bản tình ca sâu lắng, nơi vẻ đẹp người phụ nữ trong tà áo dài
+  như hoa sen giữa bùn mà vẫn thanh khiết, mềm mại và kiên định,
+  gìn giữ hồn cốt dân tộc qua bao biến động.
   </p>
 
   <p>
-  Ba chiếc quạt, ba câu chuyện, nhưng cùng hội tụ một chân lý:
-  <br><b>
-  Việt Nam không chỉ tồn tại trong hình hài đất nước,
-  mà còn là khí phách, tâm hồn, là niềm tự hào trong từng thế hệ –
-  để khi chạm đến, không chỉ thế giới rung động,
-  mà mỗi người Việt Nam cũng lặng đi rồi dâng lên một niềm kiêu hãnh sâu sắc về cội nguồn của mình.
-  </b>
+  <b>Ba chiếc quạt – ba câu chuyện – một tinh thần:
+  Việt Nam không chỉ là hình hài đất nước, mà còn là khí phách, tâm hồn
+  và niềm tự hào trong từng thế hệ.</b>
   </p>
-
 </div>
 
-<div class="section">
+<div class="section" id="sanpham">
   <h2>Sản phẩm</h2>
 
   <div class="product">
     <h3>Đất Việt</h3>
-    <p>120.000đ</p>
-    <button onclick="moForm('Đất Việt')">Mua ngay</button>
+    <p>Biểu tượng bản đồ Việt Nam</p>
+    <p>Giá: 120.000đ</p>
+    <button onclick="mua()">Mua ngay</button>
   </div>
 
   <div class="product">
     <h3>Sức Việt</h3>
-    <p>120.000đ</p>
-    <button onclick="moForm('Sức Việt')">Mua ngay</button>
+    <p>Tinh thần dân tộc</p>
+    <p>Giá: 120.000đ</p>
+    <button onclick="mua()">Mua ngay</button>
   </div>
 
   <div class="product">
     <h3>Dáng Việt</h3>
-    <p>120.000đ</p>
-    <button onclick="moForm('Dáng Việt')">Mua ngay</button>
+    <p>Vẻ đẹp áo dài</p>
+    <p>Giá: 120.000đ</p>
+    <button onclick="mua()">Mua ngay</button>
   </div>
 
 </div>
 
-<div id="formMua">
-  <h3>Đặt hàng</h3>
-
-  <input id="ten" type="text" placeholder="Họ tên"><br><br>
-  <input id="sdt" type="text" placeholder="SĐT"><br><br>
-  <input id="soluong" type="number" value="1"><br><br>
-
-  <button onclick="guiDon()">Gửi đơn</button>
-  <button onclick="dongForm()">Đóng</button>
-</div>
-
-<div class="section">
-  <h3>Danh sách đơn hàng</h3>
-  <ul id="danhsach"></ul>
+<div class="section" id="lienhe">
+  <h2>Liên hệ</h2>
+  <p>Vũ Thị Minh Hằng</p>
+  <p>SĐT: 0916611831</p>
 </div>
 
 <script>
-let sanPham = "";
-let donHang = JSON.parse(localStorage.getItem("donHang")) || [];
-
-function moForm(sp) {
-  sanPham = sp;
-  document.getElementById("formMua").style.display = "block";
+function mua() {
+  window.open("https://docs.google.com/forms/d/e/1FAIpQLScZXYnlPap4gz52X46ACTA5Qgc02j6EHIdbC6L84YkVJwU3Og/viewform");
 }
-
-function dongForm() {
-  document.getElementById("formMua").style.display = "none";
-}
-
-function guiDon() {
-  let ten = document.getElementById("ten").value;
-  let sdt = document.getElementById("sdt").value;
-  let sl = document.getElementById("soluong").value;
-
-  let don = {
-    ten: ten,
-    sdt: sdt,
-    soluong: sl,
-    sanpham: sanPham
-  };
-
-  donHang.push(don);
-
-  localStorage.setItem("donHang", JSON.stringify(donHang));
-
-  hienThi();
-
-  alert("Đặt hàng thành công!");
-
-  dongForm();
-}
-
-function hienThi() {
-  let ds = document.getElementById("danhsach");
-  ds.innerHTML = "";
-
-  donHang.forEach(d => {
-    let li = document.createElement("li");
-    li.innerText = d.ten + " - " + d.sdt + " - " + d.sanpham + " - SL: " + d.soluong;
-    ds.appendChild(li);
-  });
-}
-
-hienThi();
 </script>
 
 </body>
