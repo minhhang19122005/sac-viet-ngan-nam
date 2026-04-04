@@ -43,6 +43,7 @@ nav a {
   margin: 10px;
   display: inline-block;
   width: 250px;
+  text-align: center;
 }
 
 button {
@@ -50,6 +51,7 @@ button {
   color: white;
   border: none;
   padding: 10px;
+  cursor: pointer;
 }
 
 h2 {
@@ -99,11 +101,10 @@ h2 {
   </p>
 
   <p>
-  Ba chiếc quạt – ba câu chuyện – một tinh thần:
-  <br><b>Việt Nam không chỉ là hình hài đất nước, mà còn là khí phách, tâm hồn
+  <b>Ba chiếc quạt – ba câu chuyện – một tinh thần:
+  Việt Nam không chỉ là hình hài đất nước, mà còn là khí phách, tâm hồn
   và niềm tự hào trong từng thế hệ.</b>
   </p>
-
 </div>
 
 <div class="section" id="sanpham">
@@ -113,21 +114,21 @@ h2 {
     <h3>Đất Việt</h3>
     <p>Biểu tượng bản đồ Việt Nam</p>
     <p>Giá: 120.000đ</p>
-    <button>Mua ngay</button>
+    <button onclick="mua()">Mua ngay</button>
   </div>
 
   <div class="product">
     <h3>Sức Việt</h3>
     <p>Tinh thần dân tộc</p>
     <p>Giá: 120.000đ</p>
-    <button>Mua ngay</button>
+    <button onclick="mua()">Mua ngay</button>
   </div>
 
   <div class="product">
     <h3>Dáng Việt</h3>
     <p>Vẻ đẹp áo dài</p>
     <p>Giá: 120.000đ</p>
-    <button>Mua ngay</button>
+    <button onclick="mua()">Mua ngay</button>
   </div>
 
 </div>
@@ -137,6 +138,12 @@ h2 {
   <p>Vũ Thị Minh Hằng</p>
   <p>SĐT: 0916611831</p>
 </div>
+
+<script>
+function mua() {
+  window.open("https://docs.google.com/forms/d/e/1FAIpQLScZXYnlPap4gz52X46ACTA5Qgc02j6EHIdbC6L84YkVJwU3Og/viewform");
+}
+</script>
 
 </body>
 </html>
