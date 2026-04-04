@@ -37,6 +37,10 @@ nav a {
   font-size: 18px;
 }
 
+.products {
+  text-align: center;
+}
+
 .product {
   border: 1px solid #ccc;
   padding: 15px;
@@ -44,6 +48,7 @@ nav a {
   display: inline-block;
   width: 250px;
   text-align: center;
+  border-radius: 10px;
 }
 
 button {
@@ -52,6 +57,11 @@ button {
   border: none;
   padding: 10px;
   cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background: #a61b1b;
 }
 
 h2 {
@@ -107,47 +117,52 @@ h2 {
   </p>
 </div>
 
-<div class="section">
+<!-- SẢN PHẨM -->
+<div class="section" id="sanpham">
   <h2>Sản phẩm</h2>
 
-  <div class="product">
-    <h3>Đất Việt</h3>
-    <p><b>Giá: 120.000₫</b></p>
-    <button onclick="moForm('Đất Việt')">Mua ngay</button>
-  </div>
+  <div class="products">
 
-  <div class="product">
-    <h3>Sức Việt</h3>
-    <p><b>Giá: 120.000₫</b></p>
-    <button onclick="moForm('Sức Việt')">Mua ngay</button>
-  </div>
+    <div class="product">
+      <h3>Đất Việt</h3>
+      <p><b>Giá: 120.000₫</b></p>
+      <button onclick="mua()">Mua ngay</button>
+    </div>
 
-  <div class="product">
-    <h3>Dáng Việt</h3>
-    <p><b>Giá: 120.000₫</b></p>
-    <button onclick="moForm('Dáng Việt')">Mua ngay</button>
-  </div>
+    <div class="product">
+      <h3>Sức Việt</h3>
+      <p><b>Giá: 120.000₫</b></p>
+      <button onclick="mua()">Mua ngay</button>
+    </div>
 
-  <div class="product">
-    <h3>Combo Sắc Việt Ngàn Năm</h3>
-    <p><b>Giá: 320.000₫</b></p>
-    <button onclick="moForm('Combo Sắc Việt Ngàn Năm')">Mua ngay</button>
-  </div>
+    <div class="product">
+      <h3>Dáng Việt</h3>
+      <p><b>Giá: 120.000₫</b></p>
+      <button onclick="mua()">Mua ngay</button>
+    </div>
 
+    <div class="product">
+      <h3>Combo Sắc Việt Ngàn Năm</h3>
+      <p><b>Giá: 320.000₫</b></p>
+      <button onclick="mua()">Mua ngay</button>
+    </div>
+
+  </div>
 </div>
 
+<!-- LIÊN HỆ -->
 <div class="section" id="lienhe">
   <h2>Liên hệ</h2>
 
   <p><b>Vũ Thị Minh Hằng</b> – 0916611831</p>
   <p><b>Bùi Thị Kim Oanh</b> – 0963582428</p>
   <p><b>Hoàng Huyền Trang</b> – 0865196492</p>
-
 </div>
 
+<!-- SCRIPT -->
 <script>
 function mua() {
-  window.open("https://docs.google.com/forms/d/e/1FAIpQLScZXYnlPap4gz52X46ACTA5Qgc02j6EHIdbC6L84YkVJwU3Og/viewform");
+  window.open("https://docs.google.com/forms/d/e/1FAIpQLScZXYnlPap4gz52X46ACTA5Qgc02j6EHIdbC6L84YkVJwU3Og/viewform", "_blank");
 }
 </script>
 
